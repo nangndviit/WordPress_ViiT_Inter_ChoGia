@@ -1,0 +1,92 @@
+/*
+Theme Name: Flatsome
+Theme URI: http://flatsome.uxthemes.com/
+Author: UX-Themes
+Author URI: http://www.uxthemes.com/
+Description: Multi-Purpose Responsive WooCommerce Theme
+Version: 3.11.3
+Text Domain: flatsome
+License: http://themeforest.net/licenses
+License URI: http://themeforest.net/licenses
+*/
+
+
+/***************
+All custom CSS should be added to Flatsome > Advanced > Custom CSS,
+or in the style.css of a Child Theme.
+***************/
+
+.box-text .uppercase{
+	font-size: .6em
+}
+.is-large{
+	color: #000;
+    font-size: 13.5px;
+	font-weight: 700;
+}
+.from_the_blog_excerpt{
+	color: #171821;
+	font-size: 14.5px;
+}
+.from_the_blog {
+	font-size: 12px;
+}
+.text-white{
+	
+	color: #fff;
+}
+.text-footer p{
+	color: #fff;
+}
+.uk-link-reset{
+	color: #fff;
+}
+.footer-license-no{
+	display: inline-flex;
+}
+.col-inner{
+	padding: 0 0;
+}
+
+/* phần bảng tỷ giá giá vàng ... */
+.widget-price-title{
+    color: #000;
+}
+.rate{
+    float: left;
+}
+.rate h3{
+    font-size: 17px;
+    color: black;
+}
+.unit{
+    color: #000;
+    float: right;
+    font-size: 13px;
+}
+table{
+    background-color: #061890;
+    border-collapse: collapse; 
+    width: 100%; 
+}
+th, td span{
+    text-align: center; 
+    padding: 8px;
+    color: #fff;
+}
+th:nth-child(2), td:nth-child(2) span, th:nth-child(3), td:nth-child(3) span {
+    padding: 12px;
+}
+.img-currency{
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.cur-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+    margin-top: -10px;
+    background: url(http://chogia.viit.com.vn/wp-content/uploads/2024/03/currencies.png);
+}
