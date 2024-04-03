@@ -10,7 +10,7 @@ function create_shortcode_gia_xang_the_gioi()
         <div>
             <p class="unit">Đơn vị: Việt Nam đồng</p>
         </div>
-        <table>
+        <table class="world_gasoline">
             <thead>
                 <tr>
                     <th>Sản Phẩm</th>
@@ -20,14 +20,14 @@ function create_shortcode_gia_xang_the_gioi()
             </thead>
             <tbody>
                 <tr>
-                    <td>E5 RON 92-II</td>
-                    <td class="text-right">24090.00</td>
-                    <td class="text-right">23620.00</td>
+                    <td><span>E5 RON 92-II</span></td>
+                    <td class="text-right"><span>24090.00</span></td>
+                    <td class="text-right"><span>23620.00</span></td>
                 </tr>
                 <tr>
-                    <td>E5 RON 92-II</td>
-                    <td class="text-right">24090.00</td>
-                    <td class="text-right">23620.00</td>
+                    <td><span>E5 RON 92-II</span></td>
+                    <td class="text-right"><span>24090.00</span></td>
+                    <td class="text-right"><span>23620.00</span></td>
                 </tr>
             </tbody>
         </table>

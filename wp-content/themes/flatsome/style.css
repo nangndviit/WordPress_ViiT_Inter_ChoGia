@@ -16,13 +16,16 @@ All custom CSS should be added to Flatsome > Advanced > Custom CSS,
 or in the style.css of a Child Theme.
 ***************/
 
+/* phàn home các items */
 .box-text .uppercase{
 	font-size: .6em
 }
 .is-large{
-	color: #000;
-    font-size: 13.5px;
-	font-weight: 700;
+	font-size: 15px;
+} 
+div.single-page p{
+	color: #171821;
+	line-height: 25.6px;
 }
 .from_the_blog_excerpt{
 	color: #171821;
@@ -32,7 +35,6 @@ or in the style.css of a Child Theme.
 	font-size: 12px;
 }
 .text-white{
-	
 	color: #fff;
 }
 .text-footer p{
@@ -64,18 +66,10 @@ or in the style.css of a Child Theme.
     float: right;
     font-size: 13px;
 }
-table{
-    background-color: #061890;
-    border-collapse: collapse; 
-    width: 100%; 
-}
 th, td span{
     text-align: center; 
     padding: 8px;
     color: #fff;
-}
-th:nth-child(2), td:nth-child(2) span, th:nth-child(3), td:nth-child(3) span {
-    padding: 12px;
 }
 .img-currency{
     margin-left: 5px;

@@ -10,7 +10,7 @@ function create_shortcode_gia_vang_the_gioi()
         <div>
             <p class="unit">Đơn vị: Việt Nam đồng</p>
         </div>
-        <table>
+        <table class="gold_world">
             <thead>
                 <tr>
                     <th></th>

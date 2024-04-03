@@ -10,7 +10,7 @@ function create_shortcode_ty_gia()
         <div>
             <p class="unit">Đơn vị: Việt Nam đồng</p>
         </div>
-        <table>
+        <table class="rate_abank">
             <thead>
                 <tr>
                     <th>Ngoại Tệ</th>
