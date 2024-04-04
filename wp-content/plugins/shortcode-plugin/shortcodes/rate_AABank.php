@@ -18,9 +18,9 @@ function create_shortcode_gia_AABank()
         <table class="rate_table_abank">
             <thead>
                 <tr>
-                    <th class="pl-5px">Ngoại tệ</th>
-                    <th>Mua</th>
-                    <th>Bán</th>
+                    <th class="pl-5px" width="50%">Ngoại tệ</th>
+                    <th width="25%">Mua</th>
+                    <th width="25%">Bán</th>
                 </tr>
             </thead>
             <tbody>
