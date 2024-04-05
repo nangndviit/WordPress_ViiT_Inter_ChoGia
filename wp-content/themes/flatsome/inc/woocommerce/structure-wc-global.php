@@ -25,7 +25,7 @@ if ( ! function_exists( 'flatsome_woocommerce_add_notice' ) ) {
 	 */
 	function flatsome_woocommerce_add_notice() {
 		if ( is_woocommerce_activated() && ! is_cart() ) {
-			wc_print_notices();
+			if ( function_exists( 'wc_print_notices' ) ) wc_print_notices();
 		}
 	}
 }
@@ -299,12 +299,13 @@ add_action('woocommerce_after_main_content','flatsome_pages_in_search_results', 
 function flatsome_presentage_bubble( $product ) {
 	$post_id = $product->get_id();
 
-	if ( $product->is_type( 'simple' ) || $product->is_type( 'external' ) ) {
+	if ( $product->is_type( 'simple' ) || $product->is_type( 'external' ) || $product->is_type( 'variation' ) ) {
 		$regular_price  = $product->get_regular_price();
 		$sale_price     = $product->get_sale_price();
 		$bubble_content = round( ( ( floatval( $regular_price ) - floatval( $sale_price ) ) / floatval( $regular_price ) ) * 100 );
 	} elseif ( $product->is_type( 'variable' ) ) {
-		if ( $bubble_content = flatsome_percentage_get_cache( $post_id ) ) {
+		$bubble_content = flatsome_percentage_get_cache( $post_id );
+		if ( $bubble_content && apply_filters( 'flatsome_sale_bubble_percentage_cache_enabled', true ) ) {
 			return flatsome_percentage_format( $bubble_content );
 		}
 
@@ -328,7 +329,9 @@ function flatsome_presentage_bubble( $product ) {
 		$bubble_content = sprintf( __( '%s', 'woocommerce' ), $maximumper );
 
 		// Cache percentage for variable products to reduce database queries.
-		flatsome_percentage_set_cache( $post_id, $bubble_content );
+		if ( apply_filters( 'flatsome_sale_bubble_percentage_cache_enabled', true ) ) {
+			flatsome_percentage_set_cache( $post_id, $bubble_content );
+		}
 	} else {
 		// Set default and return if the product type doesn't meet specification.
 		$bubble_content = __( 'Sale!', 'woocommerce' );
@@ -555,6 +558,7 @@ function flatsome_get_payment_icons_list() {
 		'truste'          => __( 'Truste', 'flatsome-admin' ),
 		'twint'           => __( 'Twint', 'flatsome-admin' ),
 		'unionpay'        => __( 'UnionPay', 'flatsome-admin' ),
+		'venmo'           => __( 'Venmo', 'flatsome-admin' ),
 		'verisign'        => __( 'VeriSign', 'flatsome-admin' ),
 		'vipps'           => __( 'Vipps', 'flatsome-admin' ),
 		'visa'            => __( 'Visa', 'flatsome-admin' ),

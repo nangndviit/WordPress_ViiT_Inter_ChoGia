@@ -5,29 +5,35 @@ Plugin Author: ad
 */
 
 //------- tỷ giá AABank -------//
-include plugin_dir_path(__FILE__) . 'shortcodes/exchange_AABank.php';
+include plugin_dir_path(__FILE__) . 'shortcodes/Index_data/left/exchange_AABank.php';
 
 
 //------- Giá vàng thể giới -------//
-include plugin_dir_path(__FILE__) . 'shortcodes/world_gold.php';
+include plugin_dir_path(__FILE__) . 'shortcodes/Index_data/left/world_gold.php';
 
 //------- Giá vàng thể giới -------//
-include plugin_dir_path(__FILE__) . 'shortcodes/world_petroleum.php';
+include plugin_dir_path(__FILE__) . 'shortcodes/Index_data/left/world_petroleum.php';
 
 //------- Tỷ giá AABank 2 -------//
-include plugin_dir_path(__FILE__) . 'shortcodes/rate_AABank.php';
+include plugin_dir_path(__FILE__) . 'shortcodes/Index_data/right/rate_AABank.php';
+
+//------- Index tỷ giá -------//
+include plugin_dir_path(__FILE__) . 'shortcodes/Exchange_Rate/index.php';
 
 //------- Giá vàng trong nước -------//
-include plugin_dir_path(__FILE__) . 'shortcodes/Domestic_gold.php';
+include plugin_dir_path(__FILE__) . 'shortcodes/Index_data/right/Domestic_gold.php';
 
 //------- Giá xăng dầu trong nước -------//
-include plugin_dir_path(__FILE__) . 'shortcodes/Domestic_gasoline.php';
+include plugin_dir_path(__FILE__) . 'shortcodes/Index_data/right/Domestic_gasoline.php';
 
-//------- Tỷ giá ngân hàng hôm nay -------//
-include plugin_dir_path(__FILE__) . 'shortcodes/Rate_bank.php';
+//------- Header Tỷ giá ngân hàng hôm nay -------//
+include plugin_dir_path(__FILE__) . 'shortcodes/Header/Hea_ty-gia.php';
 
 //------- Header Giá xăng dầu hôm nay -------//
-include plugin_dir_path(__FILE__) . 'shortcodes/Hea_DomeGaso.php';
+include plugin_dir_path(__FILE__) . 'shortcodes/Header/Hea-gia-xang-dau-hom-nay.php';
 
 //------- Header ngoại tệ -------//
-include plugin_dir_path(__FILE__) . 'shortcodes/Foreign_currency_Bank.php';
+include plugin_dir_path(__FILE__) . 'shortcodes/Header/Hea-ngoai-te.php';
+
+//------- Vay Mua Xe -------//
+include plugin_dir_path(__FILE__) . 'shortcodes/Interest/Interest_Car.php';

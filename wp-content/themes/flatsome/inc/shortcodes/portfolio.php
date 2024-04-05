@@ -1,7 +1,7 @@
 <?php
 
 // [featured_items_slider]
-function flatsome_portfolio_shortcode($atts, $content = null, $tag) {
+function flatsome_portfolio_shortcode($atts, $content = null, $tag = '' ) {
 
   extract(shortcode_atts(array(
         // meta
@@ -76,13 +76,11 @@ function flatsome_portfolio_shortcode($atts, $content = null, $tag) {
   // Fix old
   if($tag == 'featured_items_slider') $type = 'slider';
 
-  // Fix order
-  if($orderby == 'menu_order') $order = 'asc';
-
-  // Set Classes
-  $classes_box = array('portfolio-box','box','has-hover');
-  $classes_image = array();
-  $classes_text = array('box-text');
+	// Set Classes.
+	$wrapper_class = array( 'portfolio-element-wrapper', 'has-filtering' );
+	$classes_box   = array( 'portfolio-box', 'box', 'has-hover' );
+	$classes_image = array();
+	$classes_text  = array( 'box-text' );
 
   // Fix Grid type
   if($type == 'grid'){
@@ -92,6 +90,9 @@ function flatsome_portfolio_shortcode($atts, $content = null, $tag) {
     $grid_total = count($grid);
     flatsome_get_grid_height($grid_height, $_id);
   }
+
+	// Wrapper classes.
+	if ( $visibility ) $wrapper_class[] = $visibility;
 
   // Set box style
   if($style) $classes_box[] = 'box-'.$style;
@@ -133,8 +134,7 @@ function flatsome_portfolio_shortcode($atts, $content = null, $tag) {
 
  if($animate) {$animate = 'data-animate="'.$animate.'"';}
 
-
- echo '<div id="' . $_id . '" class="portfolio-element-wrapper has-filtering">';
+ echo '<div id="' . $_id . '" class="' . implode( ' ', $wrapper_class ) . '">';
 
  // Add filter
  if($filter && $filter != 'disabled' && empty($cat) && $type !== 'grid' && $type !== 'slider' && $type !== 'full-slider'){

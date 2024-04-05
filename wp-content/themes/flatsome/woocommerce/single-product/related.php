@@ -20,13 +20,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Get Type.
-$type = get_theme_mod( 'related_products', 'slider' );
+$type             = get_theme_mod( 'related_products', 'slider' );
+$repeater_classes = array();
+
 if ( $type == 'hidden' ) return;
 if ( $type == 'grid' ) $type = 'row';
 
+ if ( get_theme_mod('category_force_image_height' ) ) $repeater_classes[] = 'has-equal-box-heights';
+ if ( get_theme_mod('equalize_product_box' ) ) $repeater_classes[] = 'equalize-box';
+
 $repater['type']         = $type;
 $repater['columns']      = get_theme_mod( 'related_products_pr_row', 4 );
-$repater['class']        = get_theme_mod( 'equalize_product_box' ) ? 'equalize-box' : '';
+$repater['columns__md']  = get_theme_mod( 'related_products_pr_row_tablet', 3 );
+$repater['columns__sm']  = get_theme_mod( 'related_products_pr_row_mobile', 2 );
+$repater['class']        = implode( ' ', $repeater_classes );
 $repater['slider_style'] = 'reveal';
 $repater['row_spacing']  = 'small';
 
