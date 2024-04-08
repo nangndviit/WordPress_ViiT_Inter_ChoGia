@@ -30,7 +30,7 @@ function create_shortcode_rate_bank()
                         <?php foreach ($bank_data as $bank) : ?>
                             <tr>
                                 <td class="ps-3">
-                                    <a href="#">
+                                    <a href="http://localhost/TT_VIIT/Wordress/wordpress/abbank/">
                                         <div class="flex gap-5">
                                             <img decoding="async" class="image-16" src="https://webtygia.com/storage/<?php echo isset($bank['image']) ? $bank['image'] : ''; ?>">
                                             <span><?php echo isset($bank['short_name']) ? $bank['short_name'] : ''; ?></span>

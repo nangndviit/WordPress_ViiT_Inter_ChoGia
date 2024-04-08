@@ -24,26 +24,54 @@ function create_shortcode_index_ty_gia()
         <div id="text-1866575507" class="text overflow-auto text-black-cmt">
             <div>
                 <div class="flex-end-center flex-wrap mb-10">
-                    <p class="mb-0 fs-12 text-black">Đơn vị: Việt Nam đồng</p>
+                    <p class="mb-0 fs-12 text-black-cmt right">Đơn vị: Việt Nam đồng</p>
                 </div>
                 <table class="exchange-rate-bank__table">
                     <thead>
                         <tr>
                             <th>Mã ngoại tệ</th>
-                            <th class="text-left">Tên ngoại tệ</th>
+                            <th>Tên ngoại tệ</th>
                             <th>Bán</th>
                             <th>Mua</th>
                             <th>Chuyển khoản</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                    <style>
+                        .image-30-20 {
+                            width: 30px;
+                            height: 20px;
+                            display: inline-flex;
+                            margin: 0 10px 0 0;
+                        }
+                        .image-30-20 span{
+                            text-transform: uppercase;
+                        }
+                        .exchange-rate-bank__table td {
+                            text-transform: uppercase;
+                            color: #2d95e3;
+                            font-size: 17px;
+                        }
+                    </style>
+                        <?php
+                        $api_url = 'https://apichogia.viit.com.vn/api/json/ngan-hang?slug=vietcombank';
+                        $data = file_get_contents($api_url);
+                        $exchangeRates = json_decode($data, true);
+
+                        if (isset($exchangeRates['shows']) && is_array($exchangeRates['shows'])) {
+                            foreach ($exchangeRates['shows'] as $rate) {
+                                echo '<tr>';
+                                echo '<td><img class="image-30-20" src="https://webtygia.com/storage/' . $rate['currency']['image'] . '"  <span>' . $rate['currency']['name'] . ' </span></td>';
+                                echo '<td>' . $rate['currency']['title'] . '</td>';
+                                echo '<td>' . number_format($rate['sell']) . '</td>';
+                                echo '<td>' . number_format($rate['buy']) . '</td>';
+                                echo '<td>' . number_format($rate['transfer']) . '</td>';
+                                echo '</tr>';
+                            }
+                        } else {
+                            echo '<tr><td colspan="5">Không có dữ liệu</td></tr>';
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>

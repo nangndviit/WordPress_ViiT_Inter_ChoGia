@@ -18,7 +18,7 @@ include plugin_dir_path(__FILE__) . 'shortcodes/Index_data/left/world_petroleum.
 include plugin_dir_path(__FILE__) . 'shortcodes/Index_data/right/rate_AABank.php';
 
 //------- Index tỷ giá -------//
-include plugin_dir_path(__FILE__) . 'shortcodes/Exchange_Rate/index.php';
+include plugin_dir_path(__FILE__) . 'shortcodes/Header/Ty_Gia/index.php';
 
 //------- Giá vàng trong nước -------//
 include plugin_dir_path(__FILE__) . 'shortcodes/Index_data/right/Domestic_gold.php';
@@ -35,5 +35,20 @@ include plugin_dir_path(__FILE__) . 'shortcodes/Header/Hea-gia-xang-dau-hom-nay.
 //------- Header ngoại tệ -------//
 include plugin_dir_path(__FILE__) . 'shortcodes/Header/Hea-ngoai-te.php';
 
+//------- Header giá vàng Doji -------//
+include plugin_dir_path(__FILE__) . 'shortcodes/Header/Hea-gia-vang/Hea-gia-vang-doji.php';
+
+//------- Header giá vàng Sjc -------//
+include plugin_dir_path(__FILE__) . 'shortcodes/Header/Hea-gia-vang/Hea-gia-vang-sjc.php';
+
+//------- Header giá vàng Pnj -------//
+include plugin_dir_path(__FILE__) . 'shortcodes/Header/Hea-gia-vang/Hea-gia-vang-pnj.php';
+
 //------- Vay Mua Xe -------//
-include plugin_dir_path(__FILE__) . 'shortcodes/Interest/Interest_Car.php';
+include plugin_dir_path(__FILE__) . 'shortcodes/Header/Interest/Interest_Car.php';
+
+//------- Vay Mua Nhà Đất -------//
+include plugin_dir_path(__FILE__) . 'shortcodes/Header/Interest/Interest_Realestate.php';
+
+//------- Vay Tín Chất -------//
+include plugin_dir_path(__FILE__) . 'shortcodes/Header/Interest/Interest_Unsecured.php';
