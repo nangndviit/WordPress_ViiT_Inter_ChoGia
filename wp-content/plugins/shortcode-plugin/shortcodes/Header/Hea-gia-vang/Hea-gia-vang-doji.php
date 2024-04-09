@@ -1,86 +1,77 @@
 <?php
-add_shortcode('shortcode_gia_vang', 'create_shortcode_gia_vang');
-function create_shortcode_gia_vang()
+add_shortcode('shortcode_gia_vang_doji', 'create_shortcode_gia_vang_doji');
+function create_shortcode_gia_vang_doji()
 {
-    ?>
-    <table class="tbl_style_embed">
-        <thead>
-            <tr>
-                <th>Địa phương</th>
-                <th style="min-width: 200px">Loại</th>
-                <th>Mua Vào</th>
-                <th>Bán Ra</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td rowspan="5" class="fw-400 text-blue-light">Hà Nội</td>
-                <td class="text-blue-light">Vàng miếng SJC - SJC</td>
-                <td class="text-right">
-                    66.450.000
-                </td>
-                <td class="text-right">
-                    67.050.000
-                </td>
-            </tr>
-            <tr>
-                <td class="text-blue-light">VÀNG TS 98 - KHÁC - 098</td>
-                <td class="text-right">
-                    50.900.000
-                </td>
-                <td class="text-right">
-                    52.200.000
-                </td>
-            </tr>
-            <tr>
-                <td class="text-blue-light">VÀNG TS 98 - PHÚ QUÝ - 098PQ</td>
-                <td class="text-right">
-                    54.194.000
-                </td>
-                <td class="text-right">
-                    55.174.000
-                </td>
-            </tr>
-            <tr>
-                <td class="text-blue-light">VÀNG TS 99 - KHÁC - 099</td>
-                <td class="text-right">
-                    0
-                </td>
-                <td class="text-right">
-                    0
-                </td>
-            </tr>
-            <tr>
-                <td class="text-blue-light">VÀNG TS 99 - PHÚ QUÝ - 099PQ</td>
-                <td class="text-right">
-                    54.747.000
-                </td>
-                <td class="text-right">
-                    55.737.000
-                </td>
-            </tr>
-            <tr>
-                <td class="fw-400 text-blue-light">Hà Nội</td>
-                <td class="text-blue-light">VÀNG TS 999 - KHÁC - 999</td>
-                <td class="text-right">
-                    54.500.000
-                </td>
-                <td class="text-right">
-                    55.500.000
-                </td>
-            </tr>
-            <tr>
-                <td class="fw-400 text-blue-light">Hà Nội</td>
-                <td class="text-blue-light">VÀNG TS 999 - KHÁC - 99911</td>
-                <td class="text-right">
-                    54.500.000
-                </td>
-                <td class="text-right">
-                    55.500.000
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <?php
+    // Lấy dữ liệu từ API về giá vàng
+    $api_url = 'https://apichogia.viit.com.vn/api/json/gia-vang?slug=vang-doji';
+    $response = wp_remote_get($api_url);
+
+    // Kiểm tra nếu có dữ liệu từ API
+    if (!is_wp_error($response)) {
+        $body = wp_remote_retrieve_body($response);
+        $data = json_decode($body, true);
+
+        // Kiểm tra xem có dữ liệu hay không
+        if ($data && isset($data['success']) && $data['success']) {
+            $shows = $data['shows'];
+
+            // Tạo một mảng để tổ chức thông tin theo từng địa phương
+            $locations = array();
+            foreach ($shows as $show) {
+                $location = $show['brand']['name'];
+                $type = $show['type']['name'];
+                $buy = number_format($show['buy'], 0, '.', '.');
+                $sell = number_format($show['sell'], 0, '.', '.');
+
+                if (!isset($locations[$location])) {
+                    $locations[$location] = array();
+                }
+
+                $locations[$location][] = array(
+                    'type' => $type,
+                    'buy' => $buy,
+                    'sell' => $sell
+                );
+            }
+
+            ?>
+            <table class="tbl_style_embed">
+                <thead>
+                    <tr class="bg-f1">
+                        <th class="fs-17 white-nowrap pd-left">Địa Phương</th>
+                        <th class="fs-17 white-nowrap pd-left">Loại</th>
+                        <th class="fs-17 white-nowrap">Mua Vào</th>
+                        <th class="fs-17 white-nowrap">Bán Ra</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $row_number = 0;
+                    foreach ($locations as $location => $types) {
+                        $rowspan = count($types);
+                        foreach ($types as $index => $type) {
+                            ?>
+                            <tr style="background-color: <?php echo $row_number % 2 == 0 ? '#fff' : '#f1f1f1'; ?>">
+                                <?php if ($index === 0) { ?>
+                                    <td rowspan="<?php echo $rowspan; ?>" class="fw-400 text-blue-light fs-17 pd-left"><?php echo $location; ?></td>
+                                <?php } ?>
+                                <td class="text-blue-light fs-17 pd-left"><?php echo $type['type']; ?></td>
+                                <td class="text-right fs-17 pd-right"><?php echo $type['buy']; ?></td>
+                                <td class="text-right fs-17 pd-right"><?php echo $type['sell']; ?></td>
+                            </tr>
+                            <?php
+                            $row_number++;
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
+            <?php
+        } else {
+            echo 'Không có dữ liệu giá vàng từ API.';
+        }
+    } else {
+        echo 'Không thể lấy dữ liệu từ API.';
+    }
 }
 ?>

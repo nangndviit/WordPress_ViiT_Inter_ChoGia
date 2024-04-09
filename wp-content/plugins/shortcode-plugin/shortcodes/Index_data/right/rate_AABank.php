@@ -6,7 +6,7 @@ function create_shortcode_gia_AABank()
      <div class="board-price bg-light">
         <div class="contai">
             <div class="left flex-end-center">
-                <h3 class="widget-price-title" data-metatip="true">Tỷ giá AABank</h3>
+                <h3 class="widget-price-title text-black-cmt" data-metatip="true">Tỷ giá AABank</h3>
             </div>
             <div class="right">
                 <div class="text-container flex-end-center">

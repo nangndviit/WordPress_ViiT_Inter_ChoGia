@@ -4,11 +4,11 @@ function create_shortcode_ty_gia()
 {
 ?>
     <div>
-        <div class="rate left">
+        <div class="rate text-left">
             <h3>Tỷ giá AABank</h3>
         </div>
         <div>
-            <p class="unit">Đơn vị: Việt Nam đồng</p>
+            <p class="unit text-right">Đơn vị: Việt Nam đồng</p>
         </div>
         <table class="rate_abank">
             <thead>

@@ -4,9 +4,11 @@ Plugin Name: Shortcode Tutorial by Admin
 Plugin Author: ad
 */
 
+//------- Ngày tháng năm -------//
+include plugin_dir_path(__FILE__) . 'shortcodes/Date/date.php';
+
 //------- tỷ giá AABank -------//
 include plugin_dir_path(__FILE__) . 'shortcodes/Index_data/left/exchange_AABank.php';
-
 
 //------- Giá vàng thể giới -------//
 include plugin_dir_path(__FILE__) . 'shortcodes/Index_data/left/world_gold.php';

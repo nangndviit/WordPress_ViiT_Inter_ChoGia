@@ -4,11 +4,11 @@ function create_shortcode_gia_vang_the_gioi()
 {
 ?>
     <div>
-        <div class="rate">
+        <div class="rate text-left">
             <h3>Giá vàng thế giới</h3>
         </div>
         <div>
-            <p class="unit">Đơn vị: Việt Nam đồng</p>
+            <p class="unit text-right">Đơn vị: Việt Nam đồng</p>
         </div>
         <table class="gold_world">
             <thead>

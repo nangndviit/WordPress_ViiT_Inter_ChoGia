@@ -4,11 +4,11 @@ function create_shortcode_gia_xang_the_gioi()
 {
 ?>
     <div>
-        <div class="rate">
+        <div class="rate text-left">
             <h3>Giá xăng dầu thể giới</h3>
         </div>
         <div>
-            <p class="unit">Đơn vị: Việt Nam đồng</p>
+            <p class="unit text-right">Đơn vị: Việt Nam đồng</p>
         </div>
         <table class="world_gasoline">
             <thead>
@@ -20,7 +20,7 @@ function create_shortcode_gia_xang_the_gioi()
             </thead>
             <tbody>
                 <tr>
-                    <td><span>E5 RON 92-II</span></td>
+                    <td class="ml-10"><span>E5 RON 92-II</span></td>
                     <td class="text-right"><span>24090.00</span></td>
                     <td class="text-right"><span>23620.00</span></td>
                 </tr>

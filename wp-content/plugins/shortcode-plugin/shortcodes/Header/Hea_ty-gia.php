@@ -11,11 +11,9 @@ function create_shortcode_rate_bank()
         $body = wp_remote_retrieve_body($response); 
         $banks = json_decode($body, true); 
 
-        // Kiểm tra xem $banks có phải là một mảng không trước khi truy cập vào thuộc tính 'bank'
         if (is_array($banks) && isset($banks['bank']) && is_array($banks['bank'])) {
-            $bank_data = $banks['bank']; // Lấy dữ liệu từ thuộc tính 'bank'
+            $bank_data = $banks['bank'];
 
-            // Kiểm tra nếu dữ liệu về ngân hàng không rỗng
             if (!empty($bank_data)) {
                 ?>
                 <table class="exchange-rate__table">

@@ -26,15 +26,17 @@ function create_shortcode_vay_mua_nha_dat()
                         </tr>
                         <tr>
                             <?php foreach ($time_savings as $term) : ?>
-                                <th class="text-center"><?php echo isset($term['name']) ? $term['name'] : ''; ?></th>
+                                <th class="text-center bg-f1"><?php echo isset($term['name']) ? $term['name'] : ''; ?></th>
                             <?php endforeach; ?>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                        $row_count = 0;
                         foreach ($rates as $bank_name => $bank_data) {
+                            $row_count++;
                             ?>
-                            <tr>
+                            <tr <?php if ($row_count % 2 == 0) echo 'style="background-color: #f1f1f1;"'; ?>>
                                 <td class="sticky-col" style="display: flex; align-items: center; gap: 10px; padding: 5px; font-size: 16px; background-color: rgb(255, 255, 255);">
                                     <?php
                                     $bank_images = array();
@@ -75,9 +77,6 @@ function create_shortcode_vay_mua_nha_dat()
                     </tbody>
                 </table>
             </div>
-            <script>
-                console.log(<?php echo json_encode($data); ?>);
-            </script>
             <?php
         }
     } else {

@@ -5,7 +5,7 @@ function create_shortcode_gia_xang_dau_trong_nuoc()
 ?>
      <div class="board-price bg-light">
         <div class="rate">
-            <h3>Giá xăng hôm nay</h3>
+            <h3 class="text-black-cmt">Giá xăng hôm nay</h3>
         </div>
         <div>
             <p class="mb-0 text-black">Đơn vị: Việt Nam đồng</p>
